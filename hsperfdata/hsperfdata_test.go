@@ -6,12 +6,11 @@ import (
 )
 
 func TestNew(t *testing.T) {
-	repo, err := New()
+	repo, err := NewDir("../test-data/hsperfdata_tokuhirom/")
 	if err != nil {
 		t.Error(err)
 	}
 
-	repo.dir = "../test-data/hsperfdata_tokuhirom/"
 	proc := repo.GetFile("21916")
 	if proc.GetPid() != "21916" {
 		t.Error("GetPid failed")

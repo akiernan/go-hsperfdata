@@ -31,6 +31,11 @@ func NewUser(userName string) (*Repository, error) {
 	return &Repository{dir}, nil
 }
 
+func NewDir(dirName string) (*Repository, error) {
+	dir := dirName
+	return &Repository{dir}, nil
+}
+
 func (repository *Repository) GetFile(pid string) File {
 	return File{filepath.Join(repository.dir, pid)}
 }
